@@ -1,0 +1,28 @@
+﻿@model Assignment.Models.Author
+
+<div class="container col-md-6 text-center mt-3">
+    <table class="table table-bordered">
+        <tr>
+            <th colspan="2" class="h3 bg-light text-success">@Model.Name</th>
+        </tr>
+        <tr>
+            <th>Country Name</th>
+            <td>
+                <a class="font-weight-bold text-italic">
+                    @Model.Country
+                </a>
+        </tr>
+        <tr>
+            <th>Book List</th>
+            <td>
+                @foreach (var book in Model.Book)
+                {
+                    <a class="font-weight-bold text-italic" asp-controller="Book" asp-action="Detail" asp-route-id="@book.Id">
+                        @book.Title
+                    </a>
+                    <br />
+                }
+            </td>
+        </tr>
+    </table>
+</div>
